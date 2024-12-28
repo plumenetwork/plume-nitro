@@ -1,3 +1,47 @@
+## Usage
+
+Building the image locally:
+
+```
+git clone https://github.com/plumenetwork/plume-nitro
+cd plume-nitro 
+git submodule update --init --recursive --force
+docker build . -t nitro-plume:0.0.3 --no-cache
+```
+
+Pulling the image from Docker Hub:
+```
+docker pull ghcr.io/conduitxyz/plume-nitro:latest
+```
+
+Running the node:
+
+```
+Command:
+  /usr/local/bin/nitro
+Args:
+  --http.api=net,web3,eth,debug
+  --http.corsdomain=*
+  --http.addr=0.0.0.0
+  --http.vhosts=*
+  --parent-chain.connection.url=http://eth-l1:8545
+  --parent-chain.blob-client.beacon-url=http://eth-beacon:3000
+  --metrics
+  --metrics-server.addr=127.0.0.1
+  --metrics-server.port=6070
+  --metrics-server.update-interval=5s
+  --chain.id=98865
+  --chain.info-json=[{"chain-id":98865,"parent-chain-id":1,"chain-name":"conduit-orbit-deployer","chain-config":{"chainId":98865,"homesteadBlock":0,"daoForkBlock":null,"daoForkSupport":true,"eip150Block":0,"eip150Hash":"0x0000000000000000000000000000000000000000000000000000000000000000","eip155Block":0,"eip158Block":0,"byzantiumBlock":0,"constantinopleBlock":0,"petersburgBlock":0,"istanbulBlock":0,"muirGlacierBlock":0,"berlinBlock":0,"londonBlock":0,"clique":{"period":0,"epoch":0},"arbitrum":{"EnableArbOS":true,"AllowDebugPrecompiles":false,"DataAvailabilityCommittee":true,"InitialArbOSVersion":32,"InitialChainOwner":"0xEE6bEc438c70B20A916069508D109DAabA5B4E7E","GenesisBlockNum":0}},"rollup":{"bridge":"0xd53645c6b5e19b3CE2d00bA27d734dCC928FCC54","inbox":"0xC45276467BDb1a9D083010c7CA7Fe2d593a10d01","sequencer-inbox":"0x3fD761A6eFC2137F03f03Da3d46933dD2e6FF0BB","rollup":"0x59EF2FBa6ED4366cb1C3F67f232aaf824B536AB9","validator-utils":"0x84eA2523b271029FFAeB58fc6E6F1435a280db44","validator-wallet-creator":"0x0A5eC2286bB15893d5b8f320aAbc823B2186BA09","deployed-at":20895111}}]
+  --chain.name=conduit-orbit-deployer
+  --execution.caching.archive
+  --execution.forwarding-target=wss://relay-plume-mainnet-0.t.conduit.xyz
+  --node.data-availability.enable=true
+  --node.data-availability.rest-aggregator.enable=true
+  --node.data-availability.rest-aggregator.urls=https://das-plume-mainnet-0.t.conduit.xyz
+  --node.staker.enable=false
+  --node.feed.input.url=wss://relay-plume-mainnet-0.t.conduit.xyz
+```
+
 <br />
 <p align="center">
   <a href="https://arbitrum.io/">
